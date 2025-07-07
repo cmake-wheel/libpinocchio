@@ -4,7 +4,7 @@ requires = [
   "cmeel-boost ~= 1.87.0",
   "cmeel-urdfdom[build] >= 4",
   "cmeel[build]",
-  "coal[build] >= 3, < 4",
+  "coal-cpp[build] >= 3, < 4",
   "scipy",
 ]
 
@@ -12,11 +12,11 @@ requires = [
 dependencies = [
   "cmeel-boost ~= 1.87.0",
   "cmeel-urdfdom >= 4",
-  "coal >= 3, < 4"
+  "coal-cpp >= 3, < 4"
 ]
 description = "A fast and flexible implementation of Rigid Body Dynamics algorithms and their analytical derivatives"
 license = "BSD-3-Clause"
-name = "pin"
+name = "pin-cpp"
 version = "3.4.0"
 
 [project.urls]
@@ -26,10 +26,12 @@ upstream = "https://github.com/stack-of-tasks/pinocchio"
 
 [tool.cmeel]
 configure-args = [
+  "-DBUILD_PYTHON_INTERFACE=OFF",
   "-DBUILD_WITH_COLLISION_SUPPORT=ON",
   "-DBUILD_WITH_LIBPYTHON=OFF",
   "-DSUFFIX_SO_VERSION=OFF"
 ]
+has-sitelib = false
 
 [tool.ruff]
 exclude = [ "cmake/*", "models/example-robot-data/*" ]
