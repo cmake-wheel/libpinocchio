@@ -84,6 +84,7 @@ function(PINOCCHIO_TARGET target_name)
   endif()
 
   add_library(${LIB_NAME} ${LIBRARY_TYPE})
+  add_library(${PROJECT_NAME}::${LIB_NAME} ALIAS ${LIB_NAME})
   target_link_libraries(${LIB_NAME} ${LIBRARY_PUBLIC_SCOPE} ${PROJECT_NAME}_headers)
 
   # On CMake 3.16 we can't call target_sources or set_target_properties with LINKER_LANGUAGE,
@@ -358,7 +359,7 @@ endif()
 # Define casadi target.
 if(BUILD_WITH_CASADI_SUPPORT)
   pinocchio_specific_type(casadi CASADI_SCOPE)
-  target_link_libraries(${PROJECT_NAME}_casadi ${CASADI_SCOPE} casadi)
+  target_link_libraries(${PROJECT_NAME}_casadi ${CASADI_SCOPE} casadi::casadi)
 endif()
 
 if(BUILD_WITH_PYTHON_PARSER_SUPPORT)

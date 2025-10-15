@@ -3,21 +3,18 @@ name: "CI - Nix"
 on:
   push:
     branches:
-      - master
       - devel
   pull_request:
-    branches:
-      - master
-      - devel
 
 jobs:
   nix-full:
     runs-on: "${{ matrix.os }}-latest"
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu, macos]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: cachix/install-nix-action@v31
       - uses: cachix/cachix-action@v16
         with:
@@ -37,7 +34,7 @@ jobs:
         with:
           name: gepetto
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - run: nix build -L .#pinocchio-cpp
+      - run: nix build -L .#libpinocchio
       - run: nix build -L .#pinocchio-py
 
   check:
