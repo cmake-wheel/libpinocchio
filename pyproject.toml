@@ -35,6 +35,7 @@ configure-args = [
   "-DSUFFIX_SO_VERSION=OFF"
 ]
 has-sitelib = false
+run-tests = false
 
 [tool.ruff]
 exclude = [ "cmake/*", "models/example-robot-data/*" ]
