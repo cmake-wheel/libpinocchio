@@ -16,7 +16,7 @@ dependencies = [
 ]
 description = "A fast and flexible implementation of Rigid Body Dynamics algorithms and their analytical derivatives"
 license = "BSD-3-Clause"
-name = "pin-cpp"
+name = "libpinocchio"
 version = "3.4.0"
 
 [project.urls]
