@@ -99,6 +99,7 @@ function(PINOCCHIO_TARGET target_name)
       PROPERTIES LINKER_LANGUAGE CXX
                  INSTALL_RPATH "\$ORIGIN"
                  VERSION ${PROJECT_VERSION}
+                 SOVERSION 3
                  CXX_VISIBILITY_PRESET hidden
                  VISIBILITY_INLINES_HIDDEN ON)
   endif()
